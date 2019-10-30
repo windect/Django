@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,12 +79,20 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
          # 'ENGINE': 'mysql.connector.django',
-        'NAME': 'test',
+        'NAME': 'newdjango',
         'USER': 'root',
         'PASSWORD': '1234qwer',
         'HOST': 'localhost',
         'PORT': '3306',
-    }
+    },
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     # 'ENGINE': 'mysql.connector.django',
+    #     'NAME': 'newdjango',
+    #     'USER': 'root',
+    #     'PASSWORD': '1234qwer',
+    # }
 }
 
 
@@ -117,7 +126,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

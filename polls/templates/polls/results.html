@@ -1,0 +1,26 @@
+<h1>{{ question.question_text }}</h1>
+
+<u1>
+    {{ choice }}
+
+    {% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    {% endfor %}
+
+
+    {% for etc in question.etc_set.all %}
+        <li>{{ etc.Etc_text }} -- {{ etc.count }}</li>
+    {% endfor %}
+
+    {{ Etcs_orderby }}
+{#{% if messages %}#}
+{#<ul class="messages">#}
+{#    {% for message in messages %}#}
+{#    <li>{{ message }}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{#{% endif %}#}
+
+</u1>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>

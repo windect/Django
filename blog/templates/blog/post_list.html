@@ -1,19 +1,34 @@
+{% load static %}
 <html>
     <head>
         <title>Ola's blog</title>
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="">DJango Girls Blog</a></h1>
         </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <h1><a href = "">{{post.title}}</a></h1>
+                        <div class="date">
+                            <p>published:{{post.published_date}}</p>
+                            <p>published:{{post.text}}</p>
+                        </div>
+                        <p>{{post.test|linebreaksbr}}</p>
+                    </div>
+                {% endfor %}
 
-        {% for post in posts %}
-            <div>
-                <p>published:{{post.published_date}}</p>
-                <h1><a href = "">{{post.title}}</a></h1>
-                <p>{{post.test|linebreaksbr}}</p>
+
             </div>
-        {% endfor %}
+        </div>
+    </div>
 
     </body>
 </html>
